@@ -23,7 +23,7 @@ class AVS_Admin {
             'AI Visibility',
             'manage_options',
             'ai-visibility-suite',
-            array($this, 'settings_page'),
+            '__return_null',
             'dashicons-search',
             80
         );
