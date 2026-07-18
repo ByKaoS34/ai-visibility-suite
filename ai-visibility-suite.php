@@ -33,7 +33,7 @@ require_once AVS_PATH . 'admin/class-settings.php';
 new AVS_Settings();
 
 function avs_activate() {
-    AVS_LLMS::create_llms_file();
+
 }
 
 register_activation_hook(__FILE__, 'avs_activate');
