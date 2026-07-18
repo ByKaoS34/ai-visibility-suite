@@ -25,6 +25,11 @@ require_once AVS_PATH . 'admin/class-admin.php';
 
 require_once AVS_PATH . 'admin/class-settings.php';
 
+require_once AVS_PATH . 'includes/class-services.php';
+
+require_once AVS_PATH . 'includes/class-full-generator.php';
+
+
 new AVS_Settings();
 
 function avs_activate() {
