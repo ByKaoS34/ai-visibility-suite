@@ -30,6 +30,22 @@ class AVS_LLMS {
     public function generate(){
 
 
+        global $wp_filesystem;
+
+
+        if(empty($wp_filesystem)){
+
+
+            require_once ABSPATH . '/wp-admin/includes/file.php';
+
+
+            WP_Filesystem();
+
+
+        }
+
+
+
 
         // llms.txt
 
@@ -44,16 +60,19 @@ class AVS_LLMS {
 
 
 
-            file_put_contents(
+            $wp_filesystem->put_contents(
 
                 ABSPATH . 'llms.txt',
 
-                $content
+                $content,
+
+                FS_CHMOD_FILE
 
             );
 
 
         }
+
 
 
 
@@ -67,16 +86,17 @@ class AVS_LLMS {
             $full_generator = new AVS_Full_Generator();
 
 
-
             $full_content = $full_generator->generate();
 
 
 
-            file_put_contents(
+            $wp_filesystem->put_contents(
 
                 ABSPATH . 'llms-full.txt',
 
-                $full_content
+                $full_content,
+
+                FS_CHMOD_FILE
 
             );
 
@@ -84,8 +104,8 @@ class AVS_LLMS {
         }
 
 
-    }
 
+    }
 
 
 }
