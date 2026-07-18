@@ -16,9 +16,13 @@ if (!defined('ABSPATH')) {
 define('AVS_PATH', plugin_dir_path(__FILE__));
 
 require_once AVS_PATH . 'includes/class-llms.php';
-require_once AVS_PATH . 'admin/class-admin.php';
+
+require_once AVS_PATH . 'includes/class-content.php';
+
 require_once AVS_PATH . 'includes/class-generator.php';
-new AVS_Admin();
+
+require_once AVS_PATH . 'admin/class-admin.php';
+
 require_once AVS_PATH . 'admin/class-settings.php';
 
 new AVS_Settings();
