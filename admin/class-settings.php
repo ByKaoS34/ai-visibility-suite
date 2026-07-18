@@ -23,7 +23,7 @@ class AVS_Settings {
 
 
     public function add_settings_page() {
-
+error_log('AVS Settings menu çalıştı');
         add_submenu_page(
             'ai-visibility-suite',
             'AI Visibility Ayarları',
