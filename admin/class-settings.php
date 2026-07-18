@@ -29,7 +29,7 @@ error_log('AVS Settings menu çalıştı');
             'AI Visibility Ayarları',
             'Ayarlar',
             'manage_options',
-            'avs-settings',
+           'ai-visibility-settings',
             array($this, 'settings_page')
         );
 
