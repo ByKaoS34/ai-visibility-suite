@@ -32,6 +32,8 @@ require_once AVS_PATH . 'admin/class-settings.php';
 
 new AVS_Settings();
 
+new AVS_Admin();
+
 function avs_activate() {
 
 }
