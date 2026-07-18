@@ -16,6 +16,9 @@ if (!defined('ABSPATH')) {
 define('AVS_PATH', plugin_dir_path(__FILE__));
 
 require_once AVS_PATH . 'includes/class-llms.php';
+require_once AVS_PATH . 'admin/class-admin.php';
+
+new AVS_Admin();
 
 function avs_activate() {
     AVS_LLMS::create_llms_file();
