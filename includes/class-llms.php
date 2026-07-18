@@ -17,14 +17,30 @@ class AVS_LLMS {
         );
 
 
+        add_action(
+            'save_post',
+            array($this,'generate')
+        );
+
+
     }
+
 
 
 
     public function generate(){
 
 
+        if(!class_exists('AVS_Generator')){
+
+            return;
+
+        }
+
+
+
         $generator = new AVS_Generator();
+
 
 
         $content = $generator->generate();
