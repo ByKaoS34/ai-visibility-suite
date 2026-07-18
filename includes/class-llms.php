@@ -27,36 +27,65 @@ class AVS_LLMS {
 
 
 
-
     public function generate(){
 
 
-        if(!class_exists('AVS_Generator')){
 
-            return;
+        // llms.txt
+
+
+        if(class_exists('AVS_Generator')){
+
+
+            $generator = new AVS_Generator();
+
+
+            $content = $generator->generate();
+
+
+
+            file_put_contents(
+
+                ABSPATH . 'llms.txt',
+
+                $content
+
+            );
+
 
         }
 
 
 
-        $generator = new AVS_Generator();
+
+        // llms-full.txt
+
+
+        if(class_exists('AVS_Full_Generator')){
+
+
+            $full_generator = new AVS_Full_Generator();
 
 
 
-        $content = $generator->generate();
+            $full_content = $full_generator->generate();
 
 
 
-        file_put_contents(
+            file_put_contents(
 
-            ABSPATH . 'llms.txt',
+                ABSPATH . 'llms-full.txt',
 
-            $content
+                $full_content
 
-        );
+            );
+
+
+        }
 
 
     }
+
 
 
 }
