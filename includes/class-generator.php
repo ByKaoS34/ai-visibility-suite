@@ -162,7 +162,37 @@ class AVS_Generator {
         }
 
 
+$services = new AVS_Services();
 
+
+$service_items = $services->get_services();
+
+
+
+if($service_items){
+
+
+    $content .= "## Services\n\n";
+
+
+    foreach($service_items as $service){
+
+
+        $content .= "- ";
+
+        $content .= get_the_title(
+            $service->ID
+        );
+
+        $content .= "\n";
+
+
+    }
+
+
+    $content .= "\n";
+
+}
 
         return $content;
 
