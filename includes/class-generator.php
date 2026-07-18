@@ -10,7 +10,20 @@ class AVS_Generator {
 
     public function generate(){
 
+$content = "";
 
+
+$content .= "# " . get_option(
+    'avs_site_name',
+    get_bloginfo('name')
+);
+
+$content .= "\n\n";
+
+
+$content .= "## AI Information\n\n";
+
+$content .= "This website provides structured information about air conditioners, comparisons, guides, service information and technical solutions.\n\n";
         $content = "";
 
 
