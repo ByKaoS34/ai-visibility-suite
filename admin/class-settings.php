@@ -62,6 +62,15 @@ class AVS_Settings {
             'avs_options',
             'avs_keywords'
         );
+        register_setting(
+'avs_options',
+'avs_site_type'
+);
+
+register_setting(
+'avs_options',
+'avs_main_topic'
+);
 
     }
 
