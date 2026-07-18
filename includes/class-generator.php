@@ -14,6 +14,12 @@ class AVS_Generator {
         $content = "";
 
 
+
+        /*
+        Site Başlığı
+        */
+
+
         $content .= "# " . get_option(
             'avs_site_name',
             get_bloginfo('name')
@@ -22,7 +28,11 @@ class AVS_Generator {
         $content .= "\n\n";
 
 
-        // Site Information
+
+        /*
+        Site Information
+        */
+
 
         $content .= "## Site Information\n\n";
 
@@ -53,7 +63,10 @@ class AVS_Generator {
 
 
 
-        // About
+        /*
+        About
+        */
+
 
         $content .= "## About\n\n";
 
@@ -69,7 +82,9 @@ class AVS_Generator {
 
 
 
-        // Keywords
+        /*
+        Keywords
+        */
 
 
         $keywords = get_option('avs_keywords');
@@ -84,54 +99,49 @@ class AVS_Generator {
 
             $content .= "\n\n";
 
-
         }
 
 
 
 
-        // Categories
+
+        /*
+        Content Types
+        */
 
 
-        $content .= "## Categories\n\n";
-
-
-        $categories = get_categories(array(
-            'hide_empty'=>true
-        ));
-
-
-
-        foreach($categories as $category){
-
-
-            $content .= "### ";
-
-            $content .= $category->name;
-
-            $content .= "\n\n";
+        $content .= "## Content\n\n";
 
 
 
-            $posts = get_posts(array(
-
-                'category'=>$category->term_id,
-
-                'numberposts'=>10,
-
-                'post_status'=>'publish'
-
-            ));
+        $content_manager = new AVS_Content();
 
 
 
-            foreach($posts as $post){
+        $post_types = $content_manager->get_post_types();
+
+
+
+
+        foreach($post_types as $type){
+
+
+
+            $content .= "### " . ucfirst($type) . "\n\n";
+
+
+
+            $items = $content_manager->get_items($type);
+
+
+
+            foreach($items as $item){
 
 
                 $content .= "- ";
 
                 $content .= get_the_title(
-                    $post->ID
+                    $item->ID
                 );
 
                 $content .= "\n";
@@ -140,43 +150,20 @@ class AVS_Generator {
             }
 
 
-            $content .= "\n";
-
-
-        }
-
-
-
-
-
-        // Pages
-
-
-        $content .= "## Pages\n\n";
-
-
-        $pages = get_pages();
-
-
-
-        foreach($pages as $page){
-
-
-            $content .= "- ";
-
-            $content .= $page->post_title;
 
             $content .= "\n";
 
-
         }
+
 
 
 
         return $content;
 
 
+
     }
+
 
 
 }
