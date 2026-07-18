@@ -123,15 +123,21 @@ class AVS_Generator {
 
 
 
-        foreach($post_types as $type){
+       foreach($post_types as $type){
+
+
+    if($type == 'ourservices'){
+
+        continue;
+
+    }
 
 
 
-            $content .= "### " . ucfirst($type) . "\n\n";
+    $content .= "### " . ucfirst($type) . "\n\n";
 
 
-
-            $items = $content_manager->get_items($type);
+    $items = $content_manager->get_items($type);
 
 
 
