@@ -25,9 +25,9 @@ require_once AVS_PATH . 'includes/class-full-generator.php';
 
 require_once AVS_PATH . 'includes/class-llms.php';
 
-require_once AVS_PATH . 'admin/class-admin.php';
-
 require_once AVS_PATH . 'admin/class-settings.php';
+
+require_once AVS_PATH . 'admin/class-admin.php';
 
 
 new AVS_Settings();
